@@ -49,6 +49,12 @@ public class ContactController {
 		return contactService.deleteContactById(contactId);
 		
 	}
+	@GetMapping("/")
+	public String welcome() {
+		return "Welcome to springboot application.....";
+		
+		
+	}
 	
 	
 }
