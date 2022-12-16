@@ -3,6 +3,7 @@ package com.example.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,19 +16,20 @@ import com.example.entity.Contact;
 import com.example.service.ContactService;
 
 @RestController
+@CrossOrigin
 public class ContactController {
 	
 	@Autowired
 	private ContactService contactService;
 	
-	@PostMapping("/save")
+	@PostMapping("/contact")
 	public String saveContact(@RequestBody Contact contact) {
 		
 		return contactService.saveContact(contact);
 		
 	}
 
-	@GetMapping("/allContacts")
+	@GetMapping("/contacts")
 	public List<Contact> getAllContacts(){
 		return contactService.getAllContacts();
 		
@@ -38,7 +40,7 @@ public class ContactController {
 		
 	}
 	
-	@PutMapping("/updateContact")
+	@PutMapping("/contact")
 	public String editContact(@RequestBody Contact contact) {
 		return contactService.updateContact(contact);
 		
